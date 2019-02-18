@@ -5,6 +5,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationComponent } from './authentication.component';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     declarations:
@@ -15,7 +16,8 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
         ],
     imports: [
         CommonModule,
-        AuthenticationRoutingModule
+        AuthenticationRoutingModule,
+        SharedModule
     ]
 })
 export class AuthenticationModule{}
