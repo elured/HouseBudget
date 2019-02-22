@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { from } from 'rxjs';
 import { UsersService } from './shared/services/users.service';
+import { AuthentificationService } from './shared/services/authentification.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { UsersService } from './shared/services/users.service';
     // , 
     // AppRoutingModule
   ],
-  providers: [UsersService],
+  providers: [UsersService, AuthentificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

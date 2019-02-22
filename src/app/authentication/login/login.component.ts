@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthentificationService } from 'src/app/shared/services/authentification.service';
+import { Router } from '@angular/router';
 import { HttpClient } from  "@angular/common/http";
 import { Observable } from  "rxjs/Observable";
 import { UsersService } from 'src/app/shared/services/users.service';
@@ -13,12 +15,17 @@ import { Message } from 'src/app/shared/models/message.model';
 })
 export class LoginComponent implements OnInit {
   userObservable: Observable<User>;
-  // userObservable: User[];
+  
   form: FormGroup;
   message: Message;
 
-  constructor(private usersServer: UsersService) { }
-  // , private  httpClient:HttpClient
+  constructor(
+      private usersServer: UsersService, 
+      private authentificationService: AuthentificationService,
+      private router: Router
+  ) { 
+  }
+
   ngOnInit() {
     this.message = new Message('danger', '');
     this.form = new FormGroup({
@@ -42,6 +49,10 @@ export class LoginComponent implements OnInit {
       if(user){
         if(user.password === formData.password){
           console.log(user);
+          this.message.text = '';
+          window.localStorage.setItem('user',JSON.stringify(user));
+          this.authentificationService.login();
+          // this.router.navigate(['']);
         }else{
           this.showMessage('Passwort ist falsch')
         }
