@@ -12,6 +12,7 @@
           *ngIf="form.get('email').invalid && form.get('email').touched">
       <span *ngIf="form.get('email')['errors']['required']">E-mail kann nicht leer sein</span>
       <span *ngIf="form.get('email')['errors']['email']">E-mail ist nicht korrekt</span>
+      <span *ngIf="form.get('email')['errors']['forbiddenEmail']">E-mail existiert bereits</span>
     </span>
   </div>
   <div class="form-group"
