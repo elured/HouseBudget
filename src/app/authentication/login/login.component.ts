@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthentificationService } from 'src/app/shared/services/authentification.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from  "@angular/common/http";
 import { Observable } from  "rxjs/Observable";
 import { UsersService } from 'src/app/shared/services/users.service';
 import { User } from 'src/app/shared/models/user.model';
 import { Message } from 'src/app/shared/models/message.model';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'hb-login',
@@ -22,20 +23,27 @@ export class LoginComponent implements OnInit {
   constructor(
       private usersServer: UsersService, 
       private authentificationService: AuthentificationService,
-      private router: Router
+      private router: Router,
+      private route: ActivatedRoute
   ) { 
   }
 
   ngOnInit() {
     this.message = new Message('danger', '');
+    
+    this.route.queryParams.subscribe((params: Params) => {
+                                    if(params['nowCanLoggin']){
+                                      this.showMessage({text: "Jetzt können Sie sich anmelden", type: "success"});
+                                    }
+                                  });
     this.form = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required, Validators.minLength(6)])
     });
   }
 
-  private showMessage(text: string, type: string = "danger"){
-    this.message = new Message(type, text);
+  private showMessage(message: Message){
+    this.message = message;
     window.setTimeout(() => {
       this.message.text = ''
     }, 5000);
@@ -54,10 +62,10 @@ export class LoginComponent implements OnInit {
           this.authentificationService.login();
           // this.router.navigate(['']);
         }else{
-          this.showMessage('Passwort ist falsch')
+          this.showMessage({text: 'Passwort ist falsch', type: 'danger'});
         }
       }else{
-        this.showMessage('Es existiert kein Benutzer mit dieser Email');
+        this.showMessage({text: 'Es existiert kein Benutzer mit dieser Email', type: 'danger'});
       }
     });
      //console.log(this.userObservable)

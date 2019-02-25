@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
     templateUrl: './authentication.component.html'
 })
 export class AuthenticationComponent implements OnInit{
-constructor(private router: Router){}
+    constructor(private router: Router){}
 
-ngOnInit(){
-    this.router.navigate(['/login']);
-}
+    ngOnInit(){
+        this.router.navigate(['/login']);
+    }
 }

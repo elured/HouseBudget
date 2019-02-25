@@ -1,32 +1,68 @@
 <p class="text-xs-center">Registrieren Sie sich für den Zugang</p>
-<form>
-  <div class="form-group">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group" 
+        [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
     <label for="email">Email</label>
-    <input type="text" class="form-control underlined" id="email" placeholder="Geben Sie Ihre E-Mail-Adresse ein">
+    <input type="text" 
+            class="form-control underlined" 
+            id="email" 
+            placeholder="Geben Sie Ihre E-Mail-Adresse ein"
+            formControlName="email">
+    <span class="form-help-text"
+          *ngIf="form.get('email').invalid && form.get('email').touched">
+      <span *ngIf="form.get('email')['errors']['required']">E-mail kann nicht leer sein</span>
+      <span *ngIf="form.get('email')['errors']['email']">E-mail ist nicht korrekt</span>
+    </span>
   </div>
-  <div class="form-group has-error">
+  <div class="form-group"
+        [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}">
     <label for="password">Passwort</label>
-    <input type="password" class="form-control underlined" id="password" placeholder="Geben Sie Ihr Passwort ein">
-    <span class="form-help-text">Error message.</span>
+    <input type="password" 
+            class="form-control underlined" 
+            id="password" 
+            placeholder="Geben Sie Ihr Passwort ein"
+            formControlName="password">
+            <span class="form-help-text" 
+                  *ngIf="form.get('password').invalid && form.get('password').touched">
+              <span *ngIf="form.get('password')['errors']['required']">Passwort kann nicht leer sein</span>
+              <span *ngIf="form.get('password')['errors']['minlength'] && form.get('password')['errors']['minlength']['requiredLength']">Passwort muss größer als 
+                  {{ form.get('password')['errors']['minlength']['requiredLength'] }} Zeichen sein. Bis jetzt wurde 
+                  {{ form.get('password')['errors']['minlength']['actualLength'] }}
+                  Zeichen eingegeben.</span>
+            </span>
   </div>
-  <div class="form-group has-success">
+  <div class="form-group"
+        [ngClass]="{'has-error': form.get('name').invalid && form.get('name').touched}">
     <label for="name">Name</label>
-    <input type="text" class="form-control underlined" id="name" placeholder="Geben Sie Ihren Namen ein">
-    <span class="form-help-text">Success message.</span>
+    <input type="text" 
+            class="form-control underlined" 
+            id="name" 
+            placeholder="Geben Sie Ihren Namen ein"
+            formControlName="name">
+    <span class="form-help-text"
+          *ngIf="form.get('name').invalid && form.get('name').touched">
+      Name kann nicht leer sein
+    </span>
   </div>
-  <div class="form-group">
+  <div class="form-group"
+        [ngClass]="{'has-error': form.get('agree').invalid && form.get('agree').touched}">
     <label for="agree">
-      <input class="checkbox" id="agree" type="checkbox">
+      <input class="checkbox" 
+              id="agree" 
+              type="checkbox"
+              formControlName="agree">
       <span>Zustimmen</span>
     </label>
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-block btn-primary"></button>
+    <button type="submit" 
+            class="btn btn-block btn-primary"
+            [disabled]="form.invalid">Registrieren</button>
   </div>
   <div class="form-group">
     <p class="text-muted text-xs-center">
       Haben Sie bereits ein Konto?
-      <a href="#">
+      <a [routerLink]="'/login'">
         Anmelden!
       </a>
     </p>
