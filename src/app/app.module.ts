@@ -2,23 +2,28 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { from } from 'rxjs';
 import { UsersService } from './shared/services/users.service';
 import { AuthentificationService } from './shared/services/authentification.service';
+import { SystemModule } from './system/system.module';
 
 @NgModule({
   declarations: [
     AppComponent
+    // ,
+    // BillPageComponent,
+    // HistoryPageComponent,
+    // PlanningPageComponent,
+    // RecordsPageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    AuthenticationModule,
     AppRoutingModule,
-    AuthenticationModule
+    SystemModule
     // , 
     // AppRoutingModule
   ],
