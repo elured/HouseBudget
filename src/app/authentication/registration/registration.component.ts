@@ -40,9 +40,9 @@ export class RegistrationComponent implements OnInit {
     return new Promise((resolve, reject) => {
       this.usersServise.getUserByEmail(control.value)
         .subscribe((user: User) => {
-          if(user){
+          if(user){//.email){
+            console.log(user);
             resolve({forbiddenEmail: true});
-            // console.log(this);
           }else{
             resolve(null);
           }

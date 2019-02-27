@@ -1,14 +1,18 @@
-import { Injectable } from "@angular/core";
+// import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Bill } from '../models/bill.model';
+import { BaseApi } from 'src/app/shared/core/base-api';
+import { Injectable } from '@angular/core';
 
 @Injectable()
-export class BillService{
+export class BillService extends BaseApi{
     baseBillUrl:string = "http://localhost:3000/bill";
-    constructor(private httpClient: HttpClient){}
-    // freeCurrencyBaseUrl: string = "https://free.currencyconverterapi.com/api/v6/";
-    freeCurrencyBaseUrl: string;//"https://free.currencyconverterapi.com/api/v6/convert?apiKey=sample-api-key&q=EUR_USD&compact=ultra"
+    constructor(public httpClient: HttpClient){
+        super(httpClient);
+    }
+
+    freeCurrencyBaseUrl: string;
     apiKey: string;
     freeCurrencyUrl: string;
 bill: Bill;
@@ -18,21 +22,13 @@ ngOnInit(){
     this.freeCurrencyUrl = `https://free.currencyconverterapi.com/api/v6/convert?apiKey=${this.apiKey}`;//&q=EUR_USD&compact=ultra";
 }
 
-    // getBill(): Observable<Bill>{
-    //     return this.httpClient.get<Bill[]>(this.baseBillUrl)
-    //             .map((bill: Bill[]) => bill[0] ? bill[0] : undefined);//(response: Response) => response.json());
-    // }
-    getBill(){
-        return this.httpClient.get(this.baseBillUrl);
-                // .subscribe((bill: Bill) => {
-                //     this.bill = bill;
-                //     console.log(bill);
-                // });
-    }
+    // getBill(){
+    //     return this.httpClient.get(this.baseBillUrl);
+    //     }
 
-    // getCurrency(){
-    //     return this.httpClient.get('http://api.fixer.io/latest');
-    // }
+  getBill(): Observable<Bill>{
+      return this.get("bill");
+  }
 
     getCurrency(currency:string = 'USD'){
         let argument = `${this.freeCurrencyUrl}&q=EUR_USD&compact=ultra`;
