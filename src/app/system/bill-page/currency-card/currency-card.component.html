@@ -14,21 +14,28 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Dollar</td>
-                        <td>24</td>
-                        <td>12.12.2017</td>
-                    </tr>
-                    <tr>
-                        <td>Euro</td>
-                        <td>26</td>
-                        <td>12.12.2017</td>
-                    </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>Rubel</td>
-                        <td>0.4</td>
+                        <td>1</td>
                         <td>12.12.2017</td>
+                    </tr> -->
+                    
+                    <tr *ngFor="let c of currencies">
+                        <td>{{ c }}</td>
+                        <td>{{ currency.rates[c] }}</td>
+                        <td>{{ currency.date }}</td>
                     </tr>
+                    <!-- <tr>
+                            <td>EUR</td>
+                            <td>1</td>
+                            <td>{{ currency.date }}</td>
+                        </tr>
+                        
+                        <tr *ngFor="let c of currencies">
+                            <td>{{ c }}</td>
+                            <td>{{ currency.rates[c] }}</td>
+                            <td>{{ currency.date }}</td>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

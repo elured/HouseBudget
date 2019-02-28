@@ -30,9 +30,13 @@ ngOnInit(){
       return this.get("bill");
   }
 
-    getCurrency(currency:string = 'USD'){
-        let argument = `${this.freeCurrencyUrl}&q=EUR_USD&compact=ultra`;
-        console.log();
-        return this.httpClient.get("https://free.currencyconverterapi.com/api/v6/convert?apiKey=fbfe8034ae0a2ee69544&q=EUR_USD&compact=ultra");
-    }
+//   getCurrency(currentCurrency:string = "EUR", foreignCurrency:string = 'USD'){
+//     let argument = `${this.freeCurrencyUrl}&q=EUR_USD&compact=ultra`;
+//     console.log();
+//     return this.httpClient.get(`https://free.currencyconverterapi.com/api/v6/convert?apiKey=fbfe8034ae0a2ee69544&q=${currentCurrency}_${foreignCurrency}&compact=ultra`);
+// }
+getCurrency(currentCurrency:string = "EUR"){
+    
+    return this.httpClient.get(`https://api.exchangeratesapi.io/latest?base=${currentCurrency}`);
+}
 }
