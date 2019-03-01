@@ -20,6 +20,7 @@ export class UsersService extends BaseApi{
         return this.get(`users?email=${email}`).map((user: User[]) => user[0] ? user[0] : undefined);
     }
 
+    //ToDo: diese Methode muss geniralisiert werden
     createNewUser(user: User): Observable<User>{
         return this.http.post<User>(this.baseUsersUrl, user);
     }

@@ -32,6 +32,26 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
+    },
+    {
+      "name": "newCat",
+      "capacity": 33,
+      "id": 4
+    },
+    {
+      "name": "newCatId",
+      "capacity": 33334,
+      "id": 5
+    },
+    {
+      "name": "новая категория",
+      "capacity": 1234,
+      "id": 6
+    },
+    {
+      "name": "новаяНовая Категория",
+      "capacity": 123456789,
+      "id": 7
     }
   ],
   "events": [

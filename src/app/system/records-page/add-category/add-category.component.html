@@ -35,7 +35,9 @@
                 <span class="form-help-text"
                         *ngIf="capacity.invalid && capacity.touched">Das Feld kann nicht leer sein</span>
             </div>
-            <button type="submit" class="btn btn-primary">Hinzufügen</button>
+            <button type="submit" 
+                    class="btn btn-primary"
+                    [disabled]="f.invalid">Hinzufügen</button>
         </form>
     </div>
 </div>

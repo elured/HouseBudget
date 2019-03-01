@@ -15,8 +15,8 @@ export class AddCategoryComponent{
   constructor(private categoriesService: CategoriesServise) { }
 
   onSubmit(form:NgForm){
-  const {name, capacity} = form.value;
-  if(capacity < 0) capacity * -1;
+  let {name, capacity} = form.value;
+  if(capacity < 0) capacity *= -1;
 
   let category = new Category(name, capacity);  
 
