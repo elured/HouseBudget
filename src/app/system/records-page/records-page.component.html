@@ -7,70 +7,15 @@
 <section class="section">
   <div class="row">
       <div class="col-md-6">
-          <div class="card">
-              <div class="card-header bordered">
-                  <div class="header-block">
-                      <h3 class="title">Ereignis hinzufügen</h3>
-                  </div>
-              </div>
-              <div class="card-block">
-                  <form>
-                      <div class="form-group">
-                          <label class="control-label" for="category">Kategorie auswählen</label>
-                          <select class="form-control" id="category">
-                              <option>Erste Möglichkeit</option>
-                              <option>Zweite Möglichkeit</option>
-                              <option>Dritte Möglichkeit</option>
-                              <option>Vierte Möglichkeit</option>
-                          </select>
-                      </div>
-                      <div class="form-group">
-                          <label class="control-label">Typ auswählen</label>
-                          <div>
-                              <label>
-                                  <input class="radio" name="radios" type="radio">
-                                  <span>Einkommen</span>
-                              </label>
-                          </div>
-                          <div>
-                              <label>
-                                  <input class="radio" name="radios" type="radio" checked>
-                                  <span>Aufwendung</span>
-                              </label>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <label class="control-label" for="amount">Geben Sie die Summe ein</label>
-                          <input type="number" value="0" id="amount" class="form-control">
-                      </div>
-                      <button type="submit" class="btn btn-primary">Hinzufügen</button>
-                  </form>
-              </div>
-          </div>
+        <hb-add-event></hb-add-event>
       </div>
       <div class="col-md-6">
-          <div class="card">
-              <div class="card-header bordered">
-                  <div class="header-block">
-                      <h3 class="title">Kategorie Hinzufügen</h3>
-                  </div>
-              </div>
-              <div class="card-block">
-                  <form>
-                      <div class="form-group has-error">
-                          <label class="control-label" for="category-name">Geben ein Name der Kategorie</label>
-                          <input type="text" id="category-name" class="form-control">
-                          <span class="form-help-text">Fehler bei der Validierung</span>
-                      </div>
-                      <div class="form-group has-success">
-                          <label class="control-label" for="category-value">Geben ein Limit</label>
-                          <input type="number" value="0" id="category-value" class="form-control">
-                          <span class="form-help-text">Fehler bei der Validierung</span>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Hinzufügen</button>
-                  </form>
-              </div>
-          </div>
+          <hb-add-category (onCtegoryAdd)="newCtegoryAdded($event)"></hb-add-category>
       </div>
   </div>
+      <div class="row">
+          <div class="col-md-6">
+              <hb-edit-category></hb-edit-category>
+          </div>
+      </div>
 </section>

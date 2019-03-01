@@ -23,7 +23,7 @@
                     <tr *ngFor="let c of currencies">
                         <td>{{ c }}</td>
                         <td>{{ currency.rates[c] }}</td>
-                        <td>{{ currency.date }}</td>
+                        <td>{{ currency.date | hbMoment:'YYYY-MM-DD'}}</td>
                     </tr>
                     <!-- <tr>
                             <td>EUR</td>
