@@ -5,6 +5,10 @@
         </div>
     </div>
     <div class="card-block">
+        <div class="alert alert-{{message.type}}"
+                *ngIf="message.text">
+            {{message.text}}
+        </div>
         <form #f="ngForm" (ngSubmit)="onSubmit(f)">
             <div class="form-group">
                 <label class="control-label" for="category">Kategorie auswählen</label>
@@ -45,7 +49,7 @@
                         *ngIf="amount.invalid && amount.touched">Das Feld kann nicht leer sein</span>
             </div>
             <div class="form-group" [ngClass]="{'has-error' : description.invalid && description.touched}">
-                <label class="control-label" for="description">Geben Sie die Summe ein</label>
+                <label class="control-label" for="description">Geben Sie die Beschreibung ein</label>
                 <input type="text" 
                         id="description"
                         class="form-control"

@@ -30,6 +30,10 @@ ngOnInit(){
       return this.get("bill");
   }
 
+  updateBill(bill: Bill): Observable<Bill>{
+      return  this.put('bill', bill);
+  }
+
 //   getCurrency(currentCurrency:string = "EUR", foreignCurrency:string = 'USD'){
 //     let argument = `${this.freeCurrencyUrl}&q=EUR_USD&compact=ultra`;
 //     console.log();

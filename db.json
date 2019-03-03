@@ -39,8 +39,8 @@
       "id": 4
     },
     {
-      "name": "newCatId",
-      "capacity": 33334,
+      "name": "Cat",
+      "capacity": 334,
       "id": 5
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "name": "новаяНовая Категория",
-      "capacity": 123456789,
+      "capacity": 1000000,
       "id": 7
     }
   ],
@@ -94,6 +94,70 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "outcome",
+      "amount": 2000,
+      "category": 7,
+      "date": "03.03.2019 19:39:36",
+      "description": "test",
+      "id": 6
+    },
+    {
+      "type": "outcome",
+      "amount": 3000,
+      "category": 7,
+      "date": "03.03.2019 19:42:41",
+      "description": "fff",
+      "id": 7
+    },
+    {
+      "type": "outcome",
+      "amount": 4000,
+      "category": 7,
+      "date": "03.03.2019 19:44:10",
+      "description": "ffff",
+      "id": 8
+    },
+    {
+      "type": "outcome",
+      "amount": 3000,
+      "category": 7,
+      "date": "03.03.2019 19:47:02",
+      "description": "sdf",
+      "id": 9
+    },
+    {
+      "type": "outcome",
+      "amount": 3116,
+      "category": 7,
+      "date": "03.03.2019 19:47:41",
+      "description": "dd",
+      "id": 10
+    },
+    {
+      "type": "income",
+      "amount": 3166,
+      "category": 1,
+      "date": "03.03.2019 19:47:53",
+      "description": "ss",
+      "id": 11
+    },
+    {
+      "type": "income",
+      "amount": 3116,
+      "category": 7,
+      "date": "03.03.2019 19:48:08",
+      "description": "dd",
+      "id": 12
+    },
+    {
+      "type": "income",
+      "amount": 100100,
+      "category": 1,
+      "date": "03.03.2019 20:04:06",
+      "description": "q",
+      "id": 13
     }
   ]
 }
