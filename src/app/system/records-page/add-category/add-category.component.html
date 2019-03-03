@@ -21,7 +21,7 @@
                     *ngIf="name.invalid && name.touched" 
                     class="form-help-text">Kategoryname kann nicht leer sein</span>
             </div>
-            <div class="form-group"
+            <div class="form-group" 
                  [ngClass]="{'has-error':capacity.invalid && capacity.touched}">
                 <label class="control-label" for="category-value">Geben ein Limit ein</label>
                 <input type="number" 
