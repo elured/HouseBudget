@@ -6,11 +6,15 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EventsService extends BaseApi{
-constructor(httpClient: HttpClient){
-    super(httpClient);
-}
+    constructor(httpClient: HttpClient){
+        super(httpClient);
+    }
 
-addEvent(event:HBEvent): Observable<HBEvent>{
-    return this.post("events", event);
-}
+    addEvent(event:HBEvent): Observable<HBEvent>{
+        return this.post("events", event);
+    }
+
+    getEvents(): Observable<HBEvent> {
+        return this.get('events');
+  }
 }
