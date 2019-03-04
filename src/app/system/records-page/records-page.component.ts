@@ -10,13 +10,13 @@ import { Observable } from 'rxjs';
 })
 export class RecordsPageComponent implements OnInit {
  
-  categories: any;//ist ein Array
+  categories: Category[] = [];//ist ein Array
   isLoaded = false;
   constructor(private categoriesService: CategoriesServise) { }
 
   ngOnInit() {
     this.categoriesService.getCategories()
-        .subscribe((categories: Category) => {
+        .subscribe((categories: Category[]) => {
           this.categories = categories;
           this.isLoaded = true;
         

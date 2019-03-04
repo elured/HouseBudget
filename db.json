@@ -4,7 +4,7 @@
       "id": 1,
       "email": "wfm@mail.ru",
       "password": "12345678",
-      "name": "Администратор"
+      "name": "Administrator"
     },
     {
       "email": "12345@mail.ru",
@@ -14,28 +14,28 @@
     }
   ],
   "bill": {
-    "value": 220000,
+    "value": 175000,
     "currency": "RUB"
   },
   "categories": [
     {
-      "name": "Дом",
+      "name": "Haus",
       "capacity": 15000,
       "id": 1
     },
     {
-      "name": "Еда",
+      "name": "Essen",
       "capacity": 10000,
       "id": 2
     },
     {
       "id": 3,
-      "name": "Машина",
+      "name": "Auto",
       "capacity": 7000
     },
     {
       "name": "newCat",
-      "capacity": 33,
+      "capacity": 33000,
       "id": 4
     },
     {
@@ -158,6 +158,22 @@
       "date": "03.03.2019 20:04:06",
       "description": "q",
       "id": 13
+    },
+    {
+      "type": "outcome",
+      "amount": 30000,
+      "category": 4,
+      "date": "04.03.2019 20:07:27",
+      "description": "nfnfnf",
+      "id": 14
+    },
+    {
+      "type": "outcome",
+      "amount": 15000,
+      "category": 6,
+      "date": "04.03.2019 20:08:53",
+      "description": "testtt",
+      "id": 15
     }
   ]
 }

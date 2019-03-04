@@ -57,7 +57,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
             return;
           }else{
             value = bill.value - amount;
-            console.log("bill.value is " + bill.value + "; amount is: " + amount + "; value is: " + value);
+            //console.log("bill.value is " + bill.value + "; amount is: " + amount + "; value is: " + value);
           }
         }else{
           value = bill.value + amount;

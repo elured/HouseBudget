@@ -40,7 +40,6 @@ export class EditCategoryComponent implements OnInit, OnDestroy {
           this.onCategoryEdit.emit(newCategory);
           this.message.text = 'Kategorie wurde erfolgreich editiert'; 
           window.setTimeout(() => this.message.text = '', 5000);
-          // console.log(newCategory);
         });
   }
   ngOnDestroy(){
