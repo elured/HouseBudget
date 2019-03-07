@@ -27,8 +27,8 @@ import { from } from 'rxjs';
     AuthenticationModule,
     AppRoutingModule,
     SystemModule,
-    BrowserAnimationsModule,
-    NgxChartsModule
+    BrowserAnimationsModule
+    
     // , 
     // AppRoutingModule
   ],

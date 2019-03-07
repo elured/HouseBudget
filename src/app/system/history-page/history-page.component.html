@@ -3,7 +3,9 @@
     Haushalt Archive <span class="sparkline bar"></span>
   </h3>
 </div>
-<hb-history-chart></hb-history-chart>
-<hb-history-events></hb-history-events>
-<hb-history-filter></hb-history-filter>
-<hb-h
+<div *ngIf="!isLoaded" class="text-center">Loaded..... </div>
+<div *ngIf="isLoaded">
+  <hb-history-chart [data]="chartData"></hb-history-chart>
+  <hb-history-events></hb-history-events>
+  <hb-history-filter></hb-history-filter>
+</div>
