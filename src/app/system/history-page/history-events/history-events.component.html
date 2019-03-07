@@ -37,28 +37,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>44 444</td>
-                <td>12.12.2017</td>
-                <td>Waren</td>
+              <tr *ngFor="let e of events; let idx = index;">
+                <th scope="row">{{ idx + 1 }}</th>
+                <td>{{ e.amount | number: '1.2'}}</td>
+                <td>{{ e.date | hbMoment: 'DD.MM.YY HH:mm:ss'}}</td>
+                <td>{{ e.catName }}</td>
                 <td>
-                  <span class="label label-danger">Aufwendung</span>
+                  <span [ngClass]="getEventClass(e)">
+                    <span *ngIf="e.type === 'income'">Einnahmen</span>
+                    <span *ngIf="e.type === 'outcome'">Ausgaben</span>
+                  </span>
                 </td>
                 <td class="text-lg-center">
-                  <a href="#" class="btn btn-primary-outline">Öffnen</a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>33 333</td>
-                <td>12.12.2017</td>
-                <td>Erholung</td>
-                <td>
-                  <span class="label label-success">Einkommen</span>
-                </td>
-                <td class="text-lg-center">
-                  <a href="#" class="btn btn-primary-outline">Öffnen</a>
+                  <a [routerLink]="['/system/sistory', e.id]" class="btn btn-primary-outline">Öffnen</a>
                 </td>
               </tr>
             </tbody>
