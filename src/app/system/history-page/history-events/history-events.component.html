@@ -8,18 +8,22 @@
           </div>
           <div class="form-inline pull-right m-r-2">
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Suche...">
+              <input type="text" 
+              class="form-control" 
+              [placeholder]="saerchPlaceHolder"
+              [(ngModel)]="searchValue">
             </div>
-            <div class="btn-group">
+            <div class="btn-group" hbDropdown>
               <button type="button" class="btn btn-secondary dropdown-toggle ">
                 Параметр
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Handlung</a>
-                <a class="dropdown-item" href="#">Andere Handlung</a>
-                <a class="dropdown-item" href="#">Etwas anderes hier</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Linktext</a>
+                <a class="dropdown-item" (click)="changeCriteria('amount')">Summe</a>
+                <a class="dropdown-item"  (click)="changeCriteria('date')">Datum</a>
+                <a class="dropdown-item"  (click)="changeCriteria('category')">Category</a>
+                <a class="dropdown-item"  (click)="changeCriteria('type')">Type</a>
+                <!-- <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Linktext</a> -->
               </div>
             </div>
           </div>
@@ -37,10 +41,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let e of events; let idx = index;">
+              <tr *ngFor="let e of events | hbFilter:searchValue:searchField; let idx = index;">
                 <th scope="row">{{ idx + 1 }}</th>
                 <td>{{ e.amount | number: '1.2'}}</td>
-                <td>{{ e.date | hbMoment: 'DD.MM.YY HH:mm:ss'}}</td>
+                <td>{{ e.date | hbMoment: 'DD.MM.YYYY HH:mm:ss'}}</td>
                 <td>{{ e.catName }}</td>
                 <td>
                   <span [ngClass]="getEventClass(e)">

@@ -11,6 +11,10 @@ export class HistoryEventsComponent implements OnInit {
 
   @Input() categories: Category[] = [];
   @Input() events: HBEvent[] = [];
+  searchValue = "";
+  saerchPlaceHolder = 'Summe';
+  searchField = 'amount';
+
   constructor() { }
 
   ngOnInit() {
@@ -24,5 +28,16 @@ export class HistoryEventsComponent implements OnInit {
       'label': true,
       'label-danger': e.type === 'outcome',
       'label-success': e.type === 'income'};
+  }
+
+  changeCriteria(field: string){
+    const namesMap = {
+      amount: 'Summe',
+      date: 'Datum',
+      category: 'Kategory',
+      type: 'Type'
+    };
+    this.saerchPlaceHolder = namesMap[field];
+    this.searchField = field; 
   }
 }
