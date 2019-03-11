@@ -21,7 +21,7 @@ export class AddEventComponent implements OnInit, OnDestroy {
 
   @Input() categories: Category[] = [];
   types = [
-    {type:"income", label: "Einnahmen"},
+    { type: "income", label: "Einkommen"},
     {type:"outcome", label: "Ausgaben"}
   ]
   message: Message;

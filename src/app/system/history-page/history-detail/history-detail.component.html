@@ -17,7 +17,7 @@
                   <div class="card-header">
                       <div class="header-block">
                           <p class="title">
-                            <span *ngIf="event.type === 'income'">Einnahmen</span>
+                            <span *ngIf="event.type === 'income'">Einkommen</span>
                             <span *ngIf="event.type === 'outcome'">Ausgaben</span>
                           </p>
                       </div>
@@ -29,7 +29,7 @@
                           <li>Beschreibung: <strong>{{event.description}}</strong></li>
                       </ul>
                   </div>
-                  <div class="card-footer">12.12.2017</div>
+                  <div class="card-footer">{{ event.date | hbMoment: 'DD.MM.YYYY HH:mm:ss'}}</div>
               </div>
           </div>
       </div>
