@@ -11,7 +11,7 @@
 <div *ngIf="!isLoaded" class="text-center">Loaded..... </div>
 <div *ngIf="isLoaded">
   <hb-history-chart [data]="chartData"></hb-history-chart>
-  <hb-history-events [categories]="categories" [events]="events"></hb-history-events>
+  <hb-history-events [categories]="categories" [events]="filteredEvents"></hb-history-events>
   <div *ngIf="isFilterVisible">
     <hb-history-filter
       (onFilterApply)="onFilterApply($event)"
