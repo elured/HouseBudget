@@ -9,8 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersService } from './shared/services/users.service';
 import { AuthentificationService } from './shared/services/authentification.service';
-import { SystemModule } from './system/system.module';
-import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -26,7 +24,6 @@ import { from } from 'rxjs';
     HttpClientModule,
     AuthenticationModule,
     AppRoutingModule,
-    SystemModule,
     BrowserAnimationsModule
     
     // , 
