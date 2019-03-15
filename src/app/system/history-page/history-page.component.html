@@ -8,7 +8,7 @@
     </button>
   </div>
 </div>
-<div *ngIf="!isLoaded" class="text-center">Loaded..... </div>
+<div *ngIf="!isLoaded" class="text-center"><hb-loader></hb-loader></div>
 <div *ngIf="isLoaded">
   <hb-history-chart [data]="chartData"></hb-history-chart>
   <hb-history-events [categories]="categories" [events]="filteredEvents"></hb-history-events>
