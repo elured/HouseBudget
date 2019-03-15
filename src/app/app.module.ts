@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersService } from './shared/services/users.service';
 import { AuthentificationService } from './shared/services/authentification.service';
+import { AuthentificationGuard } from './shared/services/authentification.guard';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { AuthentificationService } from './shared/services/authentification.serv
     // , 
     // AppRoutingModule
   ],
-  providers: [UsersService, AuthentificationService],
+  providers: [UsersService, 
+              AuthentificationService, 
+              AuthentificationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
