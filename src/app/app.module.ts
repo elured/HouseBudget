@@ -10,15 +10,12 @@ import { AppComponent } from './app.component';
 import { UsersService } from './shared/services/users.service';
 import { AuthentificationService } from './shared/services/authentification.service';
 import { AuthentificationGuard } from './shared/services/authentification.guard';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-    // ,
-    // BillPageComponent,
-    // HistoryPageComponent,
-    // PlanningPageComponent,
-    // RecordsPageComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +24,6 @@ import { AuthentificationGuard } from './shared/services/authentification.guard'
     AppRoutingModule,
     BrowserAnimationsModule
     
-    // , 
-    // AppRoutingModule
   ],
   providers: [UsersService, 
               AuthentificationService, 
